@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+  <h3 class="text-center">Informacion del Alumno</h3>
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <p><strong>Nombre:</strong> {{ nombre }}</p>
+        <p><strong>Apellido Paterno:</strong> {{ apellidoPaterno }}</p>
+        <p><strong>Apellido Materno:</strong> {{ apellidoMaterno }}</p>
+      </div>
+    </div>
+
+    <div class="col-md-1 d-flex gap-2">
+      <button type="button" class="btn btn-link btn-sm" routerLink="/menu/alumnos/lista">Volver</button>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <table class="table table-striped" style="table-layout: fixed; width: 100%;">
+      <colgroup>
+        <col style="width: 60%">
+        <col style="width: 10%">
+        <col style="width: 30%">
+      </colgroup>
+      <tbody>
+        <tr *ngFor="let materia of Materias">
+          <td><strong>{{ materia.nombre }}</strong></td>
+          <td>$</td>
+          <td>{{ materia.costoMateria }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td><strong>Total:</strong></td>
+          <td>$</td>
+          <td> {{ this.costoMateriaTotal }}</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

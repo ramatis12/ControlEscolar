@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <h3 class="text-center">Registrar Alumno</h3>
+  <div class="col-md-4">
+    <div class="form-group mb-3">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" [(ngModel)]="nombre" name="nombre" class="form-control"
+        style="text-transform: uppercase;" placeholder="Nombre del alumno" (keypress)="soloLetras($event)">
+    </div>
+    <div class="form-group mb-3">
+      <label for="apellidoPaterno">Apellido Paterno</label>
+      <input type="text" id="apellidoPaterno" [(ngModel)]="apellidoPaterno" name="apellidoPaterno"
+        style="text-transform: uppercase;" class="form-control" placeholder="Apellido paterno"
+        (keypress)="soloLetras($event)">
+    </div>
+    <div class="form-group mb-3">
+      <label for="apellidoMaterno">Apellido Materno</label>
+      <input type="text" id="apellidoMaterno" [(ngModel)]="apellidoMaterno" name="apellidoMaterno" class="form-control"
+        style="text-transform: uppercase;" placeholder="Apellido materno" (keypress)="soloLetras($event)">
+    </div>
+    <div class="col-md-1 d-flex gap-2">
+      <button type="button" class="btn btn-success btn-sm" (click)="guardarAlumno()">Guardar</button>
+      <button type="button" class="btn btn-danger btn-sm" (click)="limpiarAlumno()">Cancelar</button>
+      <button type="button" class="btn btn-link btn-sm" routerLink="/menu/alumnos/lista">Volver</button>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <table class="table table-striped">
+      <tr *ngFor="let materia of Materias">
+        <td style="width: 4px;">
+          <input type="checkbox" [(ngModel)]="materia.seleccionada" (change)="actualizarTotal()" name="idMateria">
+        </td>
+        <td>{{ materia.nombre }}</td>
+        <td>{{ materia.costoMateria }}</td>
+      </tr>
+      <tr>
+        <td><strong>Total:</strong></td>
+        <td>$</td>
+        <td> {{ this.costoMateriaTotal }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

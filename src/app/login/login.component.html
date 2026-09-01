@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <h3 class="text-center">Login</h3>
+      <div class="form-group mb-3">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" style="text-transform: uppercase;" [(ngModel)]="nombre" name="nombre"
+          class="form-control" placeholder="Ingresa tu nombre" (keypress)="soloLetras($event)">
+      </div>
+      <div class="form-group mb-3">
+        <label for="apellidoPaterno">Apellido Paterno</label>
+        <input type="text" id="apellidoPaterno" style="text-transform: uppercase;" [(ngModel)]="apellidoPaterno"
+          name="apellidoPaterno" class="form-control" placeholder="Ingresa tu apellido paterno"
+          (keypress)="soloLetras($event)">
+      </div>
+      <button type="button" class="btn btn-primary w-100" (click)="ingresar()">Ingresar</button>
+    </div>
+    <button type="button" class="btn btn-link btn-sm" routerLink="../registrar">Registrar</button>
+  </div>
+</div>
